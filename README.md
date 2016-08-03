@@ -5,7 +5,7 @@
 
 * Usage:
 
-Copy your "My Clipings.txt" file where clipper.py is
+Copy your "My Clippings.txt" file where clipper.py is
 Run
  
     python clipper.py 
