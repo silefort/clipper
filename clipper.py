@@ -79,7 +79,10 @@ def parse_clippings():
     for section in sections:
         clip = get_clip(section)
         if clip:
-            clips[clip['book']][clip['position']] = clip['content']
+            pos = clip['position']
+            while(pos in clips[clip['book']]):
+                pos+=1
+            clips[clip['book']][pos]= clip['content']
 
     # save/export clips
     export_txt(clips)
