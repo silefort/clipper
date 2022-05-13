@@ -5,22 +5,23 @@ import collections
 import os
 import re
 
-BOUNDARY = u"==========\r\n"
-DATA_FILE = u"clips.json"
-OUTPUT_DIR = u"output"
+# BOUNDARY = "==========\r\n"
+BOUNDARY = "==========\n"
+DATA_FILE = "clips.json"
+OUTPUT_DIR = "output"
 
 
 def get_sections(filename):
     with open(filename, 'r') as f:
-        content = f.read().decode('utf-8')
-    content = content.replace(u'\ufeff', u'')
+        content = f.read()
+    content = content.replace('\ufeff', '')
     return content.split(BOUNDARY)
 
 def get_clip(section):
 
     clip = {}
 
-    lines = [l for l in section.split(u'\r\n') if l]
+    lines = [l for l in section.split('\n') if l]
     if len(lines) != 3:
         return
 
@@ -60,10 +61,10 @@ def export_txt(clips):
 
 
     for book in clips:
-        print(book)
         lines = []
         for pos in sorted(clips[book]):
-            lines.append(clips[book][pos].encode('utf-8'))
+            # lines.append(clips[book][pos].encode('utf-8'))
+            lines.append(clips[book][pos])
 
         filename = os.path.join(OUTPUT_DIR, u"%s.markdown" % book)
         with open(filename, 'w') as f:
