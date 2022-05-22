@@ -8,6 +8,6 @@
 Copy your "My Clippings.txt" file where clipper.py is
 Run
  
-    python2.7 clipper.py 
+    python clipper.py 
 
 One file per book is generated in an "output" dir
